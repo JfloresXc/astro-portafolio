@@ -1,0 +1,13 @@
+---
+import BaseLayaout from "../layouts/BaseLayaout.astro";
+import Hero from "../components/Hero.astro";
+import Projects from "../components/projects";
+---
+
+<BaseLayaout
+  title="Jose Flores"
+  description="Jfloresxc es mi portafolio, un gusto conocerte, soy Jose FLores Chamba."
+>
+  <Hero />
+  <Projects client:load />
+</BaseLayaout>

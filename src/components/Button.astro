@@ -1,0 +1,60 @@
+---
+const {} = Astro.props;
+---
+
+<button class="button hero__button popup__button">
+  <span class="button-span">Saber más</span>
+</button>
+
+<style>
+  .button {
+    --percent-moved-emoji: 200%;
+
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--colors-primary);
+    padding: 1.4em 1em;
+    width: 200px;
+    position: relative;
+    transition: 0.4s ease-in-out all;
+    z-index: 0;
+  }
+
+  .button:hover {
+    background: var(--colors-warning);
+  }
+
+  .button-span {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: 0.4s ease-in-out all;
+  }
+
+  .button:hover .button-span {
+    transform: translate(-80px, -50%);
+    color: var(--colors-light);
+  }
+
+  .button {
+    margin-top: 2em;
+    align-self: center;
+  }
+
+  .button::before {
+    content: "🤷‍♂️";
+    position: absolute;
+    transform: translate(calc(var(--percent-moved-emoji) * -1), -50%);
+    transition: 0.4s ease-in-out all;
+    opacity: 0;
+  }
+
+  .button:hover::before {
+    transform: translate(var(--percent-moved-emoji), -50%);
+    opacity: 1;
+  }
+</style>

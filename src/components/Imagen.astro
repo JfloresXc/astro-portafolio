@@ -1,0 +1,31 @@
+---
+interface Props {
+  url: string;
+  description: string;
+  isImageOfHero?: boolean;
+}
+
+const { url, description, isImageOfHero = false } = Astro.props;
+---
+
+<img
+  class={isImageOfHero ? "hero__image" : ""}
+  src={url}
+  alt={description}
+  loading="lazy"
+/>
+
+<style>
+  .hero__image {
+    width: 40%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 900px) {
+    .hero__image {
+      width: 100%;
+      max-height: 600px;
+      padding: var(--padding-width);
+    }
+  }
+</style>

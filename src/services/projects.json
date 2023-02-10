@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Notesbook",
+    "description": "En esta app podrás escribir tus propios capítulos, y estos a la vez conteniendo tus notas las cuales podrían ser públicas o privadas.",
+    "slogan": "¿Tan sólo una app de notas?",
+    "brand": "📚 Notesbook",
+    "urlImage": "storage/page-notesbook.png",
+    "link": "https://notesbook.vercel.app/"
+  },
+  {
+    "title": "Centro Idiomas",
+    "description": "Impartimos cursos de inglés, portugués , francés y más en los niveles básico, intermedio y avanzado, en los sistemas regular e intensivo.",
+    "slogan": "Tu oportunidad de conquistar el mundo ligüístico",
+    "brand": "🎎 Centro Idiomas",
+    "urlImage": "storage/page-centroidiomas.png",
+    "link": "https://centro-idiomas.vercel.app/"
+  },
+  {
+    "title": "Comedor Untels",
+    "description": "Somos Comedor Untels, un agradable lugar que le permitirá a usted disfrutar de la mejor comida peruana y saborear exquisitos platos criollos. Tenemos una trayectoria de 15 años atendiendo a todo tipo de clientes, a quienes ofrecemos un trato amable, cordial y ordenado.",
+    "slogan": "Famosos por nuestra sazón, seguimos creciendo con la misma línea de sabor y concepto culinario peruano que se mantiene desde el primer día.",
+    "brand": "🍽️ Comedor Untels",
+    "urlImage": "storage/page-comedoruntels.png",
+    "link": "https://comedoruntels.vercel.app/"
+  }
+]

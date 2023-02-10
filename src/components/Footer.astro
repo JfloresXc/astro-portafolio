@@ -1,0 +1,98 @@
+---
+let links = [
+  {
+    link: "https://www.instagram.com/jose_flcc/",
+    icon: "instagram",
+  },
+  {
+    link: "https://www.facebook.com/profile.php?id=100008780072055",
+    icon: "facebook-square",
+  },
+  {
+    link: "https://github.com/JfloresXc",
+    icon: "github-square",
+  },
+  {
+    link: "https://www.linkedin.com/in/jfloresxc/",
+    icon: "linkedin",
+  },
+];
+---
+
+<footer>
+  <div class="footer">
+    <h3 class="footer__brand">JfloresXc</h3>
+    <p class="footer__country">Lima, Perú</p>
+    <ul class="icons footer__icons">
+      {
+        links.map(({ link, icon }) => (
+          <li class="icon">
+            <a href={link} target="_blank">
+              <i class={`fa-brands fa-${icon}`} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="footer__container-contact">
+      <span>+51 923692257</span>
+      <span>jfloresxc@gmail.com</span>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer__country,
+  .footer__container-contact {
+    justify-self: end;
+    text-align: end;
+    line-height: 1.7em;
+  }
+
+  .footer {
+    width: 100%;
+    min-height: 430px;
+    background: var(--colors-primary-dark);
+
+    color: var(--colors-light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: space-between;
+    padding: var(--padding-width);
+  }
+
+  .icons {
+    display: flex;
+    gap: 2em;
+  }
+
+  .icon {
+    list-style: none;
+    font-size: 1.7em;
+  }
+
+  .icon a {
+    text-decoration: none;
+    color: var(--colors-light);
+  }
+
+  .footer__brand {
+    font-size: 3em;
+  }
+
+  .footer p {
+    font-size: 1.2em;
+    width: fit-content;
+  }
+
+  .footer__container-contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 600px) {
+    .footer {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
