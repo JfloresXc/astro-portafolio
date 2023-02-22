@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../css/projects.css";
 import PROJECTS from "../services/projects.json";
+import "../css/projects.css";
 
 let DEFAULT_PROJECT = {
   title: "Lemlist",
@@ -14,7 +14,8 @@ export default function Projects() {
   const [project, setProject] = useState(
     PROJECTS[0] || DEFAULT_PROJECT
   );
-  const { brand, description, slogan, title } = project;
+  const { brand, description, slogan, title, urlImage, link } =
+    project;
   const [indexSelected, setIndexSelected] = useState(0);
 
   function renderProject(renderedProject) {
@@ -45,7 +46,7 @@ export default function Projects() {
               {description}
             </div>
             <a
-              href="/"
+              href={link}
               target="_blank"
               className="projects__link"
               id="project-link"
@@ -55,7 +56,7 @@ export default function Projects() {
           </div>
           <img
             className="projects__image"
-            src="storage/page-notesbook.png"
+            src={urlImage}
             alt="page-notesbook"
             id="project-image"
             loading="lazy"
@@ -65,27 +66,20 @@ export default function Projects() {
       <div className="projects__body">
         <h3 className="projects__body-title">Proyectos</h3>
         <div className="projects__list">
-          {PROJECTS.map(
-            ({ title, description, brand, slogan }, index) => (
-              <li
-                key={index}
-                className={`projects__item ${
-                  indexSelected == index && "projects__item-active"
-                }`}
-                onClick={() => {
-                  renderProject({
-                    description,
-                    brand,
-                    title,
-                    slogan,
-                  });
-                  setIndexSelected(index);
-                }}
-              >
-                {title}
-              </li>
-            )
-          )}
+          {PROJECTS.map((projectKey, index) => (
+            <li
+              key={index}
+              className={`projects__item ${
+                indexSelected == index && "projects__item-active"
+              }`}
+              onClick={() => {
+                renderProject({ ...projectKey });
+                setIndexSelected(index);
+              }}
+            >
+              {projectKey.title}
+            </li>
+          ))}
         </div>
       </div>
     </section>

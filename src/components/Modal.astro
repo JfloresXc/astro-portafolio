@@ -1,0 +1,48 @@
+---
+import Button from "./Button.astro";
+const { textButtonShow } = Astro.props;
+---
+
+<Button text={textButtonShow} optionSelectedOfHandle={"showModal"} />
+
+<div class="modal-container">
+  <div id="modal-pdf" class="modalPdf">
+    <Button text={"Cerrar"} optionSelectedOfHandle={"hideModal"} />
+    <slot name="main" class="modal-main" />
+  </div>
+</div>
+
+<style>
+  .modal-container {
+    padding: 2em;
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s linear all;
+
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .modal-main {
+    min-height: 100%;
+    padding: 2em;
+  }
+
+  .modalPdf {
+    width: 100%;
+    min-height: 80%;
+  }
+
+  .show {
+    opacity: 1;
+    z-index: 100;
+  }
+</style>

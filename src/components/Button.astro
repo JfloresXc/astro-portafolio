@@ -1,10 +1,60 @@
 ---
-const {} = Astro.props;
+interface Props {
+  text: string;
+  optionSelectedOfHandle?: string;
+}
+
+const { text, optionSelectedOfHandle = "empty" } = Astro.props;
 ---
 
-<button class="button hero__button popup__button">
-  <span class="button-span">Saber más</span>
-</button>
+<button-container data-option={optionSelectedOfHandle}>
+  <button
+    class="button hero__button popup__button"
+    id={`button-${optionSelectedOfHandle}`}
+  >
+    <span class="button-span">{text}</span>
+  </button>
+</button-container>
+
+<script>
+  class ButtonContainer extends HTMLElement {
+    OPTIONS: any = {
+      showModal: this.showModal,
+      hideModal: this.hideModal,
+    };
+
+    constructor() {
+      super();
+      this.handleClick();
+    }
+
+    handleClick() {
+      const option: any = this.dataset.option;
+
+      if (option) {
+        let idElement = `#button-${option}`;
+        let button: any = this.querySelector(idElement);
+        let handle: any = this.OPTIONS[option];
+
+        button.addEventListener("click", () => {
+          handle && handle();
+        });
+      }
+    }
+
+    showModal() {
+      let modal: any = document.querySelector(".modal-container");
+      modal.classList.add("show");
+    }
+
+    hideModal() {
+      let modal: any = document.querySelector(".modal-container");
+      modal.classList.remove("show");
+    }
+  }
+
+  customElements.define("button-container", ButtonContainer);
+</script>
 
 <style>
   .button {
@@ -26,7 +76,7 @@ const {} = Astro.props;
   }
 
   .button:hover {
-    background: var(--colors-warning);
+    background: var(--colors-accent-1-accent);
   }
 
   .button-span {

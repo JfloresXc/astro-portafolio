@@ -19,7 +19,7 @@ let links = [
 ];
 ---
 
-<footer>
+<footer id="datos">
   <div class="footer">
     <h3 class="footer__brand">JfloresXc</h3>
     <p class="footer__country">Lima, Perú</p>
@@ -62,13 +62,22 @@ let links = [
   }
 
   .icons {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     gap: 2em;
   }
 
   .icon {
     list-style: none;
     font-size: 1.7em;
+  }
+
+  .icon:hover a {
+    transition: 0.4s ease-in-out all;
+    background: var(--colors-accent-1-accent);
+    margin: 0;
+    padding: 0.2em;
+    border-radius: 5px;
   }
 
   .icon a {

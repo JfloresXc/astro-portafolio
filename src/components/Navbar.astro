@@ -2,19 +2,19 @@
 const pageName = "JfloresXc";
 const pages = [
   {
-    link: "#hero",
-    name: "Mi Perfil",
-  },
-  {
     link: "#projects",
     name: "Mis Proyectos",
+  },
+  {
+    link: "#datos",
+    name: "Mis datos",
   },
 ];
 ---
 
 <nav class="navbar">
   <li class="navbar__brand-link animate__animated animate__bounce">
-    <a href="/">{pageName}</a>
+    <a href="#hero">{pageName}</a>
   </li>
   <ul class="navbar__links animate__animated animate__bounce">
     {
@@ -33,6 +33,20 @@ const pages = [
     <span class="navbar__menu-line navbar__menu-line-3"></span>
   </button>
 </nav>
+
+<script>
+  // window.addEventListener("scroll", (e) => {
+  //   const navbar: any = document.querySelector(".navbar");
+  //   navbar.classList.toggle("sticky", window.scrollY > 0);
+  // });
+
+  const navbarMenu: any = document.querySelector(".navbar__menu");
+  const navbarLinks: any = document.querySelector(".navbar__links");
+  navbarMenu.addEventListener("click", () => {
+    navbarMenu.classList.toggle("navbar__menu-open");
+    navbarLinks.classList.toggle("navbar__links-show");
+  });
+</script>
 
 <style>
   .navbar__link,
@@ -67,6 +81,10 @@ const pages = [
     width: 250px;
     display: flex;
     justify-content: space-between;
+  }
+
+  .navbar__link:hover {
+    opacity: 0.7;
   }
 
   .navbar__brand-link {
