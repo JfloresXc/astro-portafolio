@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import favicon from "../public/storage/icon.png";
 import "../css/index.css";
 
 interface Props {
@@ -15,7 +14,7 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <link rel="icon" type="image/svg+xml" href={"storage/icon.png"} />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
